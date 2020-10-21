@@ -13,13 +13,13 @@ import java.util.List;
 @ToString
 public class QuasarDTO implements Serializable {
 
-    private List<SateliteDTO> satellites;
+    private List<SatelliteDTO> satellites;
 
-    public List<SateliteDTO> getSatellites() {
+    public List<SatelliteDTO> getSatellites() {
         return satellites;
     }
 
-    public void setSatellites(List<SateliteDTO> satellites) {
+    public void setSatellites(List<SatelliteDTO> satellites) {
         this.satellites = satellites;
     }
 }

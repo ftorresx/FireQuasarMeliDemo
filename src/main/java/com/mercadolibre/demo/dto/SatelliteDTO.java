@@ -11,7 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class SateliteDTO implements Serializable {
+public class SatelliteDTO implements Serializable {
 
     private String name;
     private Double distance;

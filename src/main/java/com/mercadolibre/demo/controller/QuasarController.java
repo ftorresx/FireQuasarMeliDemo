@@ -3,7 +3,7 @@ package com.mercadolibre.demo.controller;
 import com.mercadolibre.demo.dto.AnswerDTO;
 import com.mercadolibre.demo.dto.PositionDTO;
 import com.mercadolibre.demo.dto.QuasarDTO;
-import com.mercadolibre.demo.service.IQuasarService;
+import com.mercadolibre.demo.service.QuasarServiceInterface;
 import com.mercadolibre.demo.utils.Utils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class QuasarController {
 
     @Autowired
-    private IQuasarService quasarService;
+    private QuasarServiceInterface quasarService;
 
 
     @PostMapping(path = "/topsecret", consumes = "application/json", produces = "application/json")

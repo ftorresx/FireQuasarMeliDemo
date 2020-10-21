@@ -11,16 +11,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionAdvice {
 
     /**
-     * METODO QUE PERMITE MANEJAR LA EXCEPTIONES DEL CONTROLLER RETORNA ESTADO 404
+     * METODO QUE PERMITE MANEJAR LA EXCEPCIONES DEL CONTROLLER RETORNA ESTADO 404
+     *
      * @param exception
      * @return ResponseEntity.class
      */
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handle(Exception exception) {
-        log.error("Exception", exception);
+    public ResponseEntity<String> handleException(Exception exception) {
+        log.error("Exception ::: {}", exception);
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body("");
+                .body("RESPONSE CODE: 404");
     }
 
 }

@@ -1,7 +1,7 @@
 package com.mercadolibre.demo.utils;
 
 import com.mercadolibre.demo.dto.QuasarDTO;
-import com.mercadolibre.demo.dto.SateliteDTO;
+import com.mercadolibre.demo.dto.SatelliteDTO;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public final class Utils {
     public static Double[] getDistances(final QuasarDTO quasarDTO) {
         log.info(" quasarDTO UTIL : {}", quasarDTO);
         List<Double> distances = new ArrayList<>();
-        for (SateliteDTO sateliteDTO : quasarDTO.getSatellites()) {
+        for (SatelliteDTO sateliteDTO : quasarDTO.getSatellites()) {
             if (sateliteDTO.getName().equalsIgnoreCase("Kenobi")) {
                 distances.add(0, sateliteDTO.getDistance());
             }
@@ -32,7 +32,7 @@ public final class Utils {
     public static List<String[]> getMessages(final QuasarDTO quasarDTO) {
         List<String[]> messages = new ArrayList<>();
 
-        for (SateliteDTO sateliteDTO : quasarDTO.getSatellites()) {
+        for (SatelliteDTO sateliteDTO : quasarDTO.getSatellites()) {
             messages.add(sateliteDTO.getMessage());
         }
         return messages;
