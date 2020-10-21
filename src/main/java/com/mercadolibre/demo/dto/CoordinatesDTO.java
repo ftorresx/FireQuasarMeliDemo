@@ -10,9 +10,9 @@ import java.io.Serializable;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class AnswerDTO implements Serializable {
+public class CoordinatesDTO implements Serializable {
 
-    private PositionDTO position;
-    private String message;
+    private Double x;
+    private Double y;
 
 }

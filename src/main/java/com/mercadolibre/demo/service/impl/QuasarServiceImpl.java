@@ -30,19 +30,16 @@ public class QuasarServiceImpl implements QuasarServiceInterface {
      */
     public Double[] getLocation(final Double... distances) {
         log.info("INFO distances {}", distances);
-        //List<Double> satelliteKenobi = Arrays.asList(-500.00, -200.00, distances[0]);
         List<Double> satelliteKenobi = Arrays.asList(coordinateXSatelliteKenobi, coordinateYSatelliteKenobi, distances[0]);
-        //List<Double> satelliteSkywalker = Arrays.asList(100.00, -100.00, distances[1]);
         List<Double> satelliteSkywalker = Arrays.asList(coordinateXSatelliteSkywalker, coordinateYSatelliteSkywalker, distances[1]);
-        //List<Double> satelliteSato = Arrays.asList(500.00, 100.00, distances[2]);
         List<Double> satelliteSato = Arrays.asList(coordinateXSatelliteSato, coordinateYSatelliteSato, distances[2]);
         log.info("INFO satelliteKenobi {}", satelliteKenobi);
         /// intercepcion entre Sat1 y Sat2
-        List<Double> range1 = this.circleIntersection(satelliteKenobi, satelliteSkywalker);
+        List<Double> range1 = this.calculateCoordinatesNave(satelliteKenobi, satelliteSkywalker);
         log.info("INFO intercep1 {}", range1);
 
         /// intercepcion entre Sat1 y Sat3
-        List<Double> range2 = this.circleIntersection(satelliteKenobi, satelliteSato);
+        List<Double> range2 = this.calculateCoordinatesNave(satelliteKenobi, satelliteSato);
         log.info("INFO intercep2 {}", range2);
 
         // evaluacion de intersecciones para encontrar coordenadas
@@ -61,81 +58,58 @@ public class QuasarServiceImpl implements QuasarServiceInterface {
      * @param satB
      * @return
      */
-    private List<Double> circleIntersection(List<Double> satA, List<Double> satB) {
+    private List<Double> calculateCoordinatesNave(List<Double> satA, List<Double> satB) {
 
-        List<Double> ansInters = new ArrayList<>();
+        List<Double> coordinates = new ArrayList<>();
         Double x0, y0, r0, x1, y1, r1;
         Double a, dx, dy, d, h, rx, ry, x2, y2;
 
         x0 = satA.get(0);
         y0 = satA.get(1);
         r0 = satA.get(2);
-        //
         x1 = satB.get(0);
         y1 = satB.get(1);
         r1 = satB.get(2);
 
-        /* dx and dy are the vertical and horizontal distances between
-         * the circle centers.
-         */
         dx = x1 - x0;
         dy = y1 - y0;
 
-        /* Determine the straight-line distance between the centers. */
-        //d = sqrt((dy*dy) + (dx*dx));
-        //d = hypot(dx, dy) // Suggested by Keith Briggs
         d = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
 
-        /* Check for solvability. */
         if (d > (r0 + r1)) {
-            /* no solution. circles do not intersect. */
-            log.info("RESPUESTA INTERSECCION no solution. circles do not intersect {}", ansInters);
-            return ansInters;
+            log.info("RESPUESTA INTERSECCION no solution. circles do not intersect {}", coordinates);
+            return coordinates;
         }
 
         if (d < Math.abs(r0 - r1)) {
-            /* no solution. one circle is contained in the other */
-            log.info("RESPUESTA INTERSECCION no solution. one circle is contained in the other {}", ansInters);
-            return ansInters;
+            log.info("RESPUESTA INTERSECCION no solution. one circle is contained in the other {}", coordinates);
+            return coordinates;
         }
 
-        /* 'point 2' is the point where the line through the circle
-         * intersection points crosses the line between the circle
-         * centers.
-         */
-
-        /* Determine the distance from point 0 to point 2. */
         a = ((r0 * r0) - (r1 * r1) + (d * d)) / (2.0 * d);
 
-        /* Determine the coordinates of point 2. */
         x2 = x0 + (dx * a / d);
         y2 = y0 + (dy * a / d);
 
-        /* Determine the distance from point 2 to either of the
-         * intersection points.
-         */
+
         h = Math.sqrt((r0 * r0) - (a * a));
 
-        /* Now determine the offsets of the intersection points from
-         * point 2.
-         */
+
         rx = -dy * (h / d);
         ry = dx * (h / d);
 
-        /* Determine the absolute intersection points. */
         Double x3 = x2 + rx;
         Double x3_prime = x2 - rx;
         Double y3 = y2 + ry;
         Double y3_prime = y2 - ry;
 
-        //se ajusta el objeto de salida
-        ansInters.add(x3);
-        ansInters.add(y3);
-        ansInters.add(x3_prime);
-        ansInters.add(y3_prime);
+        coordinates.add(x3);
+        coordinates.add(y3);
+        coordinates.add(x3_prime);
+        coordinates.add(y3_prime);
 
-        log.info("RESPUESTA INTERSECCION {}", ansInters);
-        return ansInters;
+        log.info("RESPUESTA INTERSECCION {}", coordinates);
+        return coordinates;
     }
 
     /**

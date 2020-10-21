@@ -1,7 +1,7 @@
 package com.mercadolibre.demo.controller;
 
-import com.mercadolibre.demo.dto.AnswerDTO;
-import com.mercadolibre.demo.dto.PositionDTO;
+import com.mercadolibre.demo.dto.ResponseDTO;
+import com.mercadolibre.demo.dto.CoordinatesDTO;
 import com.mercadolibre.demo.dto.QuasarDTO;
 import com.mercadolibre.demo.service.QuasarServiceInterface;
 import com.mercadolibre.demo.utils.Utils;
@@ -27,10 +27,10 @@ public class QuasarController {
         log.info("distance ::: {}", distance);
         String message = quasarService.getMessage(Utils.getMessages(quasarDTO));
 
-        PositionDTO positionDTO = new PositionDTO();
+        CoordinatesDTO positionDTO = new CoordinatesDTO();
         positionDTO.setX(distance[0]);
         positionDTO.setY(distance[1]);
-        AnswerDTO answerDTO = new AnswerDTO();
+        ResponseDTO answerDTO = new ResponseDTO();
         answerDTO.setPosition(positionDTO);
         answerDTO.setMessage(message);
 

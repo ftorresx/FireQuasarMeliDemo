@@ -13,15 +13,15 @@ public final class Utils {
     public static Double[] getDistances(final QuasarDTO quasarDTO) {
         log.info(" quasarDTO UTIL : {}", quasarDTO);
         List<Double> distances = new ArrayList<>();
-        for (SatelliteDTO sateliteDTO : quasarDTO.getSatellites()) {
-            if (sateliteDTO.getName().equalsIgnoreCase("Kenobi")) {
-                distances.add(0, sateliteDTO.getDistance());
+        for (SatelliteDTO satelliteDTO : quasarDTO.getSatellites()) {
+            if (satelliteDTO.getName().equalsIgnoreCase("Kenobi")) {
+                distances.add(0, satelliteDTO.getDistance());
             }
-            if (sateliteDTO.getName().equalsIgnoreCase("Skywalker")) {
-                distances.add(1, sateliteDTO.getDistance());
+            if (satelliteDTO.getName().equalsIgnoreCase("Skywalker")) {
+                distances.add(1, satelliteDTO.getDistance());
             }
-            if (sateliteDTO.getName().equalsIgnoreCase("Sato")) {
-                distances.add(2, sateliteDTO.getDistance());
+            if (satelliteDTO.getName().equalsIgnoreCase("Sato")) {
+                distances.add(2, satelliteDTO.getDistance());
             }
         }
         log.info(" DISTANCES UTIL : {}", distances);
@@ -32,8 +32,8 @@ public final class Utils {
     public static List<String[]> getMessages(final QuasarDTO quasarDTO) {
         List<String[]> messages = new ArrayList<>();
 
-        for (SatelliteDTO sateliteDTO : quasarDTO.getSatellites()) {
-            messages.add(sateliteDTO.getMessage());
+        for (SatelliteDTO satelliteDTO : quasarDTO.getSatellites()) {
+            messages.add(satelliteDTO.getMessage());
         }
         return messages;
     }

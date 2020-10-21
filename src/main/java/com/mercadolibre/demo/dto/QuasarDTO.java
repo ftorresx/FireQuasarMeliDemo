@@ -19,7 +19,4 @@ public class QuasarDTO implements Serializable {
         return satellites;
     }
 
-    public void setSatellites(List<SatelliteDTO> satellites) {
-        this.satellites = satellites;
-    }
 }
