@@ -9,7 +9,7 @@ public interface QuasarServiceInterface {
      * @param distances
      * @return Double[]
      */
-    Double[] getLocation(final Double... distances);
+    Double[] GetLocation(final Double... distances);
 
     /**
      * METODO QUE PERMITE OBTENER EL MENSAJE DESFASADO
@@ -17,6 +17,6 @@ public interface QuasarServiceInterface {
      * @param messages
      * @return String
      */
-    String getMessage(List<String[]> messages);
+    String GetMessage(List<String[]> messages);
 
 }

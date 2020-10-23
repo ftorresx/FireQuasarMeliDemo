@@ -1,5 +1,4 @@
-package com.mercadolibre.demo.dto;
-
+package com.mercadolibre.demo.model;
 
 import lombok.*;
 
@@ -11,10 +10,12 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class SatelliteDTO implements Serializable {
+public class QuasarSplitRequest implements Serializable {
 
     private String name;
-    private Double distance;
-    private String[] message;
+
+    private String distance;
+
+    public String[] message;
 
 }

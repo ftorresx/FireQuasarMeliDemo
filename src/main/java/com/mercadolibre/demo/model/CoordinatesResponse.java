@@ -1,4 +1,4 @@
-package com.mercadolibre.demo.dto;
+package com.mercadolibre.demo.model;
 
 
 import lombok.*;
@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class CoordinatesDTO implements Serializable {
+public class CoordinatesResponse implements Serializable {
 
     private Double x;
     private Double y;
