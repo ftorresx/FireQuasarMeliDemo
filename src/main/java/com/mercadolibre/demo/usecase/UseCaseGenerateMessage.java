@@ -19,8 +19,10 @@ public class UseCaseGenerateMessage {
      * @return
      */
     public String generateMessage(List<String[]> messages) {
+        if (messages.size() > 3 || messages.size() < 1) {
+            throw new RuntimeException(ErrorEnum.WRONG_MESSAGE.getId());
+        }
         MessageResponse messageResponse = new MessageResponse();
-        String messageProcess = null;
         try {
             messageResponse = UtilSatellites.mixMessage(messages.get(0), messageResponse);
             messageResponse = UtilSatellites.mixMessage(messages.get(1), messageResponse);
@@ -29,6 +31,8 @@ public class UseCaseGenerateMessage {
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new RuntimeException(ErrorEnum.ERROR_MESSAGE.getId());
         }
-        return UtilSatellites.joinMessage(messageResponse);
+        String messageGenerate = UtilSatellites.joinMessage(messageResponse);
+        log.info("INFO MENSAJE INTERCEPTADO {}", messageGenerate);
+        return messageGenerate;
     }
 }

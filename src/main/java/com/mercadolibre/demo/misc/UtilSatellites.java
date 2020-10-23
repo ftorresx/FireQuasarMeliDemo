@@ -12,6 +12,8 @@ import java.util.Objects;
 
 @Slf4j
 public final class UtilSatellites {
+    private static String SEPARATOR_MESSAGE = " ";
+
     /**
      * METODO UTILITARIO QUE PERMITE OBTENER LAS DISTANCIAS INTERCEPTADAS EN EL REQUEST
      *
@@ -102,7 +104,6 @@ public final class UtilSatellites {
                     break;
             }
         }
-        log.info("MENSAJE RETORNADO -> {}", messageProcess);
         return messageProcess;
     }
 
@@ -113,6 +114,14 @@ public final class UtilSatellites {
      * @return
      */
     public static String joinMessage(MessageResponse messageResponse) {
-        return messageResponse.getZero() + messageResponse.getOne() + messageResponse.getTwo() + messageResponse.getThree() + messageResponse.getFour();
+        return messageResponse.getZero() + SEPARATOR_MESSAGE +
+                messageResponse.getOne() + SEPARATOR_MESSAGE +
+                messageResponse.getTwo() + SEPARATOR_MESSAGE +
+                messageResponse.getThree() + SEPARATOR_MESSAGE +
+                messageResponse.getFour();
+    }
+
+    public void positionSatellite(){
+
     }
 }

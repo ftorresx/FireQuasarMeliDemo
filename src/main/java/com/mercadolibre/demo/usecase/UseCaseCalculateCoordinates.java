@@ -1,14 +1,51 @@
 package com.mercadolibre.demo.usecase;
 
+import com.mercadolibre.demo.enums.ErrorEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
 @Service
 public class UseCaseCalculateCoordinates {
+    private final Double coordinateXSatelliteKenobi = -500.00;
+    private final Double coordinateYSatelliteKenobi = -200.00;
+
+    private final Double coordinateXSatelliteSkywalker = 100.00;
+    private final Double coordinateYSatelliteSkywalker = -100.00;
+
+    private final Double coordinateXSatelliteSato = 500.00;
+    private final Double coordinateYSatelliteSato = 100.00;
+
+    /**
+     * METODO QUE PERMITE DEFINER LAS POSICIONES DE POR LO MENOS DOS SATELITES PARA CALCULAR LA COORDENADA DE LA NAVE
+     * input: distancia al emisor tal cual se recibe en cada satélite
+     * output: las coordenadas ‘x’ e ‘y’ del emisor del mensaje
+     *
+     * @param distances
+     * @return COORDENADAS (X , Y) DEL CALCULO DE LA POSICION DE LA NAVE
+     */
+    public Double[] definePositionSatellitesByDistance(final Double... distances) {
+
+        if (distances.length > 3 || distances.length < 1) {
+            throw new RuntimeException(ErrorEnum.ERROR_INSUFFICIENT_INFORMATION_FOR_CALCULATE.getId());
+        }
+        if (distances.length == 1) {
+            return definePositionOnlyOne(distances[0]);
+        }
+        List<Double> satelliteKenobi = Arrays.asList(coordinateXSatelliteKenobi, coordinateYSatelliteKenobi, distances[0]);
+        List<Double> satelliteSkywalker = Arrays.asList(coordinateXSatelliteSkywalker, coordinateYSatelliteSkywalker, distances[1]);
+        List<Double> satelliteSato = Arrays.asList(coordinateXSatelliteSato, coordinateYSatelliteSato, distances[2]);
+        List<Double> range1 = calculateCoordinatesNave(satelliteKenobi, satelliteSkywalker);
+        List<Double> range2 = calculateCoordinatesNave(satelliteKenobi, satelliteSato);
+        List<Double> coordinatesNave = triangulatePosition(range1, range2);
+        log.info("INFO COORDENADAS NAVE {}", coordinatesNave);
+
+        return coordinatesNave.toArray(new Double[coordinatesNave.size()]);
+    }
 
     /**
      * METODO QUE CALCULA LA TRIANGULACION DE LA NAVE CON DOS (COORDENADAS)
@@ -90,5 +127,15 @@ public class UseCaseCalculateCoordinates {
         coordinates.add(y3_prime);
 
         return coordinates;
+    }
+
+    /**
+     * METODO QUE IMPLEMENTA LA LOGICA PARA CALCULAR LA TRINAGULACION DE UNA NAVE DADO UNA DISTANCIA
+     *
+     * @param distances
+     * @return
+     */
+    public Double[] definePositionOnlyOne(final Double distances) {
+        throw new UnsupportedOperationException("Not implement yet");
     }
 }

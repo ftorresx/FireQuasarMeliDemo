@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
-import java.util.List;
 
 @RestController
 @RequestMapping
@@ -42,7 +41,7 @@ public class QuasarControllerDemo {
 
     /**
      * METODO RequestMapping CONTROLLER QUE REDIRIJE LA FUNCIONALIDAD PARA CALCULAR LA POSITION DE LA NAVE CON EL
-     * DE UN SATELITE COMO PARAMETRO
+     * DE UN SATELITE COMO PARAMETRO RECIBIDO POR (POST O GET)
      *
      * @param request
      * @return
@@ -50,12 +49,10 @@ public class QuasarControllerDemo {
     @RequestMapping(value = "/topsecret_split", method = {RequestMethod.GET, RequestMethod.POST})
     public ResponseEntity<Object> splitPosition(@RequestBody final QuasarSplitRequest request,
                                                 @RequestParam(value = "satellite_name", required = false) final String satelliteName) {
-
-        log.info("INGRESA SPLIT GET AND POST {} {}", satelliteName, request);
         request.setName(satelliteName);
         PositionResponse answerPosition = new PositionResponse();
         Double[] distance = null;
-        String message = null;
+        String message = ErrorEnum.ERROR_MESSAGE.getId();
         if (UtilSatellites.verifyNameSatellite(request.getName())) {
             QuasarSatellitesRequest quasarSatellitesRequest = QuasarSatellitesRequest.builder().satellites(
                     Arrays.asList(Satellite.builder()
@@ -64,8 +61,6 @@ public class QuasarControllerDemo {
                             .name(request.getName())
                             .build())).build();
             distance = quasarServiceInterface.GetLocation(UtilSatellites.obtainDistances(quasarSatellitesRequest));
-            List<String> varList = Arrays.asList(request.getMessage());
-            //message = quasarServiceInterface.GetMessage(varList);
         } else {
             throw new RuntimeException(ErrorEnum.WRONG_MESSAGE.getId());
         }
