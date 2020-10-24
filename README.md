@@ -25,10 +25,10 @@ sugerido los siguientes modulos:
 
 
 ### Construido Con
-Esta API fue contruida con el modulo Spring del Eco-Sistema o Framework Spring que permite ligera y rapidamente desplegar los casos de usos dispuestos junto con el lenguaje de programación Java 
+Esta API fue contruida con el modulo Spring-Boot del Eco-Sistema o Framework Spring que permite ligera y rapidamente desplegar implicitament con TomCat los casos de usos dispuestos; Usando los principios S.O.L.I.D con el lenguaje de programación Java. 
 * [Spring Boot](https://spring.io/)
 * [Java](https://www.java.com/es/)
-
+* [S.O.L.I.D](https://profile.es/blog/principios-solid-desarrollo-software-calidad/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
