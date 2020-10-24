@@ -25,11 +25,9 @@ sugerido los siguientes modulos:
 
 
 ### Construido Con
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Spring](https://spring.io/)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
-
+Esta API fue contruida con el modulo Spring del Eco-Sistema o Framework Spring que permite ligera y rapidamente desplegar los casos de usos dispuestos junto con el lenguaje de programación Java 
+* [Spring Boot](https://spring.io/)
+* [Java](https://www.java.com/es/)
 
 
 <!-- GETTING STARTED -->
