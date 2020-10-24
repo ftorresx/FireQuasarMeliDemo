@@ -41,9 +41,8 @@ JDK 8 o Mayor, IDE IntelliJ u otro que permita importar y configurar el archivo
 
 ```build.gradle```
 
-Considerar realizar pruebas en con una herramienta como Postman o Similar para realizar la Peticiones POST y/o GET
-
 ## Uso
+Considerar comprobar el funcionamiento con una herramienta como Postman o Similar para realizar la Peticiones POST y/o GET
 
 <b>Caso de Uso Obtener coordenadas dado distancia de 3 satelites </b> 
 
