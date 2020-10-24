@@ -49,7 +49,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- CONTRIBUTING -->
 ## Autor
-[![LinkedIn][linkedin-shield]][linkedin-url] <b>ftorresx</b> Ingeniero de Software
+ <b>ftorresx</b> Ingeniero de Software
+ 
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
