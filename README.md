@@ -41,6 +41,8 @@ JDK 8 o Mayor, IDE IntelliJ u otro que permita importar y configurar el archivo
 
 ```build.gradle```
 
+Considerar realizar pruebas en con una herramienta como Postman o Similar para realizar la Peticiones POST y/o GET
+
 ## Uso
 
 <b>Caso de Uso Obtener coordenadas dado distancia de 3 satelites </b> 
@@ -92,9 +94,69 @@ Para obtener las coordenadas de la (Nave) se debe enviar el en Payload la siguie
     ]
 }
 ```
+<b>Ejemplo de la respuesta</b> 
+```
+{
+    "position": {
+        "x": 99.08368318371419,
+        "y": 99.99790089771481
+    },
+    "message": "este  un mensaje secreto "
+}
+```
+
+<b>Caso de Uso Obtener coordenadas dado distancia de 1 satelites </b> 
+
+URL Local :
+```http://localhost/topsecret_split/?satellite_name=kenobi ```
+
+URL AWS Publica  :
+```http://ec2-3-15-185-6.us-east-2.compute.amazonaws.com/topsecret_split/?satellite_name=kenobi```
+
+Para obtener las coordenadas de la (Nave) se debe enviar el en Payload la siguiente información con el metodo POST:
+
+```
+{
+    "satellites": [
+        {
+            "name": "kenobi",
+            "distance": 670.00,
+            "message": [
+                "este",
+                "MAS",
+                "",
+                "mensaje",
+                ""
+            ]
+        },
+        {
+            "name": "skywalker",
+            "distance": 200.00,
+            "message": [
+                "",
+                "es",
+                "",
+                "",
+                "secreto"
+            ]
+        },
+        {
+            "name": "sato",
+            "distance": 400,
+            "message": [
+                "este",
+                "",
+                "un",
+                "",
+                ""
+            ]
+        }
+    ]
+}
+```
 
 ## Autor
- <b>ftorresx</b> Ingeniero de Software
+ <b>Fernando Torres</b> Ingeniero de Software
  
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
