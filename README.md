@@ -3,7 +3,7 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <br />
-<p align="center">
+<p style="text-align:justify">
   <h3 align="center">Demo API Fuego de Quasar Mercado Libre </h3>
   <p>
     Entregable del challenge  Fuego Quasar Demo, desarrollo de API REST en el lenguaje de programación Java; de acuerdo a los requerimientos técnicos consta de dos métodos principales GetLocation que recibe como parámetros la distancia de tres puntos o (Satélites) respecto a un punto o (Nave) especifica que permite calcular la absica y ordenada (X , Y) de la posición de dicho punto o (Nave) en un cuadrante del plano cartesiano.  Para dar solución a este caso de uso se utilizo un método matemático  que permite calcular esta información con los rangos y distancias de por lo menos dos puntos o (Satélites). 
