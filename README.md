@@ -1,5 +1,3 @@
-# FireQuasarMeliDemo
-
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <br />
