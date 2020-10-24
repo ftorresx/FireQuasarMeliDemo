@@ -1,6 +1,4 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-<br />
 <p style="text-align:justify">
   <h3 align="center">Demo API Fuego de Quasar Mercado Libre </h3>
   <p>
