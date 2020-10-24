@@ -12,21 +12,21 @@
 Aplicación construida siguiendo los principios de la [Arquitectura Limpia](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/), se han 
 sugerido los siguientes modulos:  
 
-Domain
  - **Config**: Modulo que permite agregar configuración y perfilamiento de la aplicación.
  - **Controller**: Modulo que guarda los posibles controladores de la aplicación.
  - **Enums**: Modulo que guarda los Enums de la aplicación.
  - **Exeption**: Modulo que guarda el manejo dela expection de respuesta al cliente de la aplicación.
+ - **Impl**: Modulo que representa la implemntacion de la interface de del dominio de la aplicación.
  - **Misc**: Modulo que permite guardar los miscelaneos y funciones utiliratias de la aplicación.
  - **Model**: Modulo que representa la transformacion de data del dominio.
- - **Model**: Modulo que representa la transformacion de data del dominio.
+ - **Service**: Modulo que representa la interface de del dominio de la aplicación.
  - **Usecase**: Modulo que representa los casos de uso del demo.
  
 
 
-### Built With
+### Construido Con
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
+* [Spring](https://spring.io/)
 * [JQuery](https://jquery.com)
 * [Laravel](https://laravel.com)
 
