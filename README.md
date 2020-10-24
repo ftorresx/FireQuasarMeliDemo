@@ -7,14 +7,21 @@
   </p>
 </p>
 
-### Modulos de la aplicacion
+### Arquitectura
 
-Como la aplicacion esta construida siguiendo los principios de la [Arquitectura Limpia](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/), se han 
-dispuesto los siguientes modulos:  
+Aplicación construida siguiendo los principios de la [Arquitectura Limpia](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/), se han 
+sugerido los siguientes modulos:  
 
 Domain
- - **Model**: Modulo que representa las entidades de dominio.
+ - **Config**: Modulo que permite agregar configuración y perfilamiento de la aplicación.
+ - **Controller**: Modulo que guarda los posibles controladores de la aplicación.
+ - **Enums**: Modulo que guarda los Enums de la aplicación.
+ - **Exeption**: Modulo que guarda el manejo dela expection de respuesta al cliente de la aplicación.
+ - **Misc**: Modulo que permite guardar los miscelaneos y funciones utiliratias de la aplicación.
+ - **Model**: Modulo que representa la transformacion de data del dominio.
+ - **Model**: Modulo que representa la transformacion de data del dominio.
  - **Usecase**: Modulo que representa los casos de uso del demo.
+ 
 
 
 ### Built With
