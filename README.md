@@ -30,19 +30,16 @@ Esta API fue contruida con el modulo Spring-Boot del Eco-Sistema o Framework Spr
 * [Java](https://www.java.com/es/)
 * [S.O.L.I.D](https://profile.es/blog/principios-solid-desarrollo-software-calidad/)
 
-<!-- GETTING STARTED -->
-## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+## Funcionamiento
 
-### Prerequisites
+A continuacion se realizan unas consideraciones para ejecutar y usar el API local y publicamente.
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
+### Pre-Requisitos
+
+JDK 8 o Mayor, IDE IntelliJ u otro que permita importar y configurar el archivo   
+
+```build.gradle```
 
 ### Installation
 
