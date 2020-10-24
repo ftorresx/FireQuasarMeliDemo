@@ -113,45 +113,18 @@ URL Local :
 URL AWS Publica  :
 ```http://ec2-3-15-185-6.us-east-2.compute.amazonaws.com/topsecret_split/?satellite_name=kenobi```
 
-Para obtener las coordenadas de la (Nave) se debe enviar el en Payload la siguiente información con el metodo POST:
+Para obtener las coordenadas de la (Nave) se debe enviar el en Payload la siguiente información con el metodo POST o GET como se prefira:
 
 ```
 {
-    "satellites": [
-        {
-            "name": "kenobi",
-            "distance": 670.00,
+   "distance": 670.00,
             "message": [
                 "este",
-                "MAS",
+                "",
                 "",
                 "mensaje",
                 ""
             ]
-        },
-        {
-            "name": "skywalker",
-            "distance": 200.00,
-            "message": [
-                "",
-                "es",
-                "",
-                "",
-                "secreto"
-            ]
-        },
-        {
-            "name": "sato",
-            "distance": 400,
-            "message": [
-                "este",
-                "",
-                "un",
-                "",
-                ""
-            ]
-        }
-    ]
 }
 ```
 
