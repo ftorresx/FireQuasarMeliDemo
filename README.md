@@ -43,11 +43,56 @@ JDK 8 o Mayor, IDE IntelliJ u otro que permita importar y configurar el archivo
 
 ## Uso
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<b>Caso de Uso Obtener coordenadas dado distancia de 3 satelites </b> 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+URL Local :
+```http://localhost/topsecret ```
 
-<!-- CONTRIBUTING -->
+URL AWS Publica  :
+```http://ec2-3-15-185-6.us-east-2.compute.amazonaws.com/topsecret```
+
+Para obtener las coordenadas de la (Nave) se debe enviar el en Payload la siguiente información con el metodo POST:
+
+```
+{
+    "satellites": [
+        {
+            "name": "kenobi",
+            "distance": 670.00,
+            "message": [
+                "este",
+                "MAS",
+                "",
+                "mensaje",
+                ""
+            ]
+        },
+        {
+            "name": "skywalker",
+            "distance": 200.00,
+            "message": [
+                "",
+                "es",
+                "",
+                "",
+                "secreto"
+            ]
+        },
+        {
+            "name": "sato",
+            "distance": 400,
+            "message": [
+                "este",
+                "",
+                "un",
+                "",
+                ""
+            ]
+        }
+    ]
+}
+```
+
 ## Autor
  <b>ftorresx</b> Ingeniero de Software
  
