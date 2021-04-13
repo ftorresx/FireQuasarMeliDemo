@@ -2,9 +2,19 @@
 <p style="text-align:justify">
   <h3 align="center">Demo API Fuego de Quasar Mercado Libre </h3>
   <p>
-    Entregable del challenge  Fuego Quasar Demo, desarrollo de API REST en el lenguaje de programación Java; de acuerdo a los requerimientos técnicos, consta de dos métodos principales <b>GetLocation</b> que recibe como parámetros la distancia de tres puntos o (Satélites) respecto a un punto o (Nave) especifica, que permite calcular la absica y ordenada (X , Y) de la posición de dicho punto o (Nave) en un cuadrante del plano cartesiano.  Para dar solución a este caso de uso se utilizo un método matemático  que permite calcular esta información con los rangos y distancias de por lo menos dos puntos o (Satélites). 
-    El otro método <b>GetMessage</b> permite consolidar un mensaje que viene en un vector o matriz unidimensional  de 5 elementos  de cada uno de los puntos o (Satélites) que tienen una posición fija en un lambda de tiempo, para dar solución a este caso de uso se creo un método utilitario que permite fijar la posición del mensaje y consolidar la información para entregarla como respuesta en un tipo de dato String. 
+    Entregable del challenge  Fuego Quasar Demo, desarrollo de API REST en el lenguaje de programación Java; de acuerdo a los requerimientos técnicos. 
   </p>
+  Las funcionalidades esperadas son las siguientes:
+
+●     Lista de todos los productos
+
+●     Agregar, eliminar y modificar productos
+
+●     Lista de todos los productos de un carrito
+
+●     Agregar, eliminar y modificar productos al carrito
+
+●     Checkout, debe devolver el costo final de los productos del carrito y cambiar su estado a completado.
 </p>
 
 ### Arquitectura
@@ -16,11 +26,8 @@ sugerido los siguientes modulos:
  - **Controller**: Modulo que guarda los posibles controladores de la aplicación.
  - **Enums**: Modulo que guarda los Enums de la aplicación.
  - **Exeption**: Modulo que guarda el manejo dela expection de respuesta al cliente de la aplicación.
- - **Impl**: Modulo que representa la implemntacion de la interface de del dominio de la aplicación.
- - **Misc**: Modulo que permite guardar los miscelaneos y funciones utiliratias de la aplicación.
  - **Model**: Modulo que representa la transformacion de data del dominio.
  - **Service**: Modulo que representa la interface de del dominio de la aplicación.
- - **Usecase**: Modulo que representa los casos de uso del demo.
  
 
 
@@ -37,93 +44,152 @@ A continuacion se realizan unas consideraciones para ejecutar y usar el API loca
 
 ### Pre-Requisitos e Instalación Local
 
-JDK 8 o Mayor, IDE IntelliJ u otro que permita importar y configurar el archivo   
+JDK 8 o Mayor, IDE IntelliJ u otro que permita importar y configurar los archivos:   
 
-```build.gradle```
+```pom.xml```
+```aplication.properties```
 
 ## Uso
 Considerar comprobar el funcionamiento con una herramienta como Postman o Similar para realizar la Peticiones POST y/o GET
 
 <b>Caso de Uso Obtener coordenadas dado distancia de 3 satelites </b> 
 
-URL Local :
-```http://localhost/topsecret ```
+URL Local Metodo GET:
+```http://localhost:8080/api/product/ ```
 
-URL AWS Publica  :
-```http://ec2-3-15-185-6.us-east-2.compute.amazonaws.com/topsecret```
+Para obtener los productos:
 
-Para obtener las coordenadas de la (Nave) se debe enviar el en Payload la siguiente información con el metodo POST:
-
-```
-{
-    "satellites": [
-        {
-            "name": "kenobi",
-            "distance": 670.00,
-            "message": [
-                "este",
-                "MAS",
-                "",
-                "mensaje",
-                ""
-            ]
-        },
-        {
-            "name": "skywalker",
-            "distance": 200.00,
-            "message": [
-                "",
-                "es",
-                "",
-                "",
-                "secreto"
-            ]
-        },
-        {
-            "name": "sato",
-            "distance": 400,
-            "message": [
-                "este",
-                "",
-                "un",
-                "",
-                ""
-            ]
-        }
-    ]
-}
-```
 <b>Ejemplo de la respuesta</b> 
 ```
-{
-    "position": {
-        "x": 99.08368318371419,
-        "y": 99.99790089771481
+[
+    {
+        "id": "4b852323-ac8a-471b-9593-d3519cffabd2",
+        "name": "Atari 2000",
+        "price": 100.0,
+        "description": "Atari 2000",
+        "sku": "CSAT-25-A89",
+        "categoryId": 1
     },
-    "message": "este  un mensaje secreto "
+    {
+        "id": "39390d56-064c-4894-bd52-5d5c0b4c5eb2",
+        "name": "Sony PS4",
+        "price": 1500.0,
+        "description": "Sony PS4",
+        "sku": "GFD-ASD-48",
+        "categoryId": 1
+    },
+    {
+        "id": "264142dd-7883-4c3d-b228-9243a026148a",
+        "name": "Sony PS5",
+        "price": 2500.0,
+        "description": "Sony PS5",
+        "sku": "TOM-25-A87",
+        "categoryId": 2
+    },
+    {
+        "id": "c7435903-35fe-4da2-8a9a-5ce60857c74e",
+        "name": "XBOX Series",
+        "price": 2500.0,
+        "description": "XBOX Series",
+        "sku": "JMT-25-N88",
+        "categoryId": 2
+    },
+    {
+        "id": "66311618-9932-477d-a585-2d84497c3396",
+        "name": "Nintendo Switch",
+        "price": 1300.0,
+        "description": "Nintendo Switch",
+        "sku": "NTY-25-N89",
+        "categoryId": 2
+    }
+]
+```
+
+<b>Lista de todos los productos de un carrito </b> 
+
+URL Local Metodo GET :
+```http://localhost:8080/api/cart/?token=f4c3c2e9-f82a-4137-a174-de197428cd8b```
+
+
+Ejemplo de la respuesta:
+
+```
+{
+    "cartItems": [
+        {
+            "id": "3dd03c2a-633a-40da-8898-e5c6d9f49a76",
+            "userId": 23,
+            "quantity": 1,
+            "product": {
+                "id": "66311618-9932-477d-a585-2d84497c3396",
+                "name": "Nintendo Switch",
+                "price": 1300.0,
+                "sku": "NTY-25-N89",
+                "description": "Nintendo Switch"
+            }
+        }
+    ],
+    "totalCost": 1300.0
 }
 ```
 
-<b>Caso de Uso Obtener coordenadas dado distancia de 1 satelites </b> 
+<b>Lista de todos los productos de un carrito </b> 
 
 URL Local :
-```http://localhost/topsecret_split/?satellite_name=kenobi ```
+```http://localhost:8080/api/cart/?token=f4c3c2e9-f82a-4137-a174-de197428cd8b```
 
-URL AWS Publica  :
-```http://ec2-3-15-185-6.us-east-2.compute.amazonaws.com/topsecret_split/?satellite_name=kenobi```
 
-Para obtener las coordenadas de la (Nave) se debe enviar el en Payload la siguiente información con el metodo POST o GET como se prefira:
+Ejemplo de la respuesta:
 
 ```
 {
-   "distance": 670.00,
-            "message": [
-                "este",
-                "",
-                "",
-                "mensaje",
-                ""
-            ]
+    "cartItems": [
+        {
+            "id": "3dd03c2a-633a-40da-8898-e5c6d9f49a76",
+            "userId": 23,
+            "quantity": 1,
+            "product": {
+                "id": "66311618-9932-477d-a585-2d84497c3396",
+                "name": "Nintendo Switch",
+                "price": 1300.0,
+                "sku": "NTY-25-N89",
+                "description": "Nintendo Switch"
+            }
+        }
+    ],
+    "totalCost": 1300.0
+}
+```
+
+<b>Agregar productos al carrito carrito </b> 
+
+URL Local :
+```http://localhost:8080/api/cart/add?token=f4c3c2e9-f82a-4137-a174-de197428cd8b```
+
+
+Ejemplo de la respuesta:
+
+```
+{
+    "success": true,
+    "message": "Added to cart",
+    "timestamp": "2021-04-13T23:31:37.973211900"
+}
+```
+
+<b>Checkout del carrito </b> 
+
+URL Local Metodo POST:
+```http://localhost:8080/api/order/checkout/?token=f4c3c2e9-f82a-4137-a174-de197428cd8b```
+
+Ejemplo de la respuesta:
+
+```
+{
+    "success": true,
+    "message": "Checkout has been created",
+    "total": 2500.0,
+    "timestamp": "2021-04-13T23:12:08.750458700"
 }
 ```
 
